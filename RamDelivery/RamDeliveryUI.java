@@ -121,11 +121,21 @@ public class RamDeliveryUI extends javax.swing.JFrame {
         String password = jPFPassword.getText();
         
         if("student".equals(username)){
-            new StudentOrderingUI().setVisible(true);
+            new StudentUI().setVisible(true);
             this.setVisible(false);
         }
         if("cook".equals(username)){
             new StaffUI().setVisible(true);
+            this.setVisible(false);
+        }
+        
+        if("manager".equals(username)){
+            new ManagementUI().setVisible(true);
+            this.setVisible(false);
+        }
+        
+        if("courier".equals(username)){
+            new CourierUI().setVisible(true);
             this.setVisible(false);
         }
     }//GEN-LAST:event_jBTLoginActionPerformed
