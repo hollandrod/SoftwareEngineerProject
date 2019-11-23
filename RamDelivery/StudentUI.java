@@ -67,7 +67,7 @@ public class StudentUI extends javax.swing.JFrame {
         jLabel2.setText("Balance:");
 
         jTextField1.setEditable(false);
-        jTextField1.setText("$");
+        jTextField1.setText("$500");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
