@@ -40,12 +40,24 @@ public class CourierUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Courier"));
 
         jLabel1.setText("Earnings:");
 
         jTextField1.setEditable(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton1.setText("Mark Available for Orders");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -162,8 +174,29 @@ public class CourierUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        if(jToggleButton1.isSelected()){
+            System.out.print("Selected");
+            jTextField1.setText("$523.54");
+            jTextField2.setText("Subway");
+            jTextField3.setText("EJones");
+            jTextField4.setText("DJR");
+        }
+        else{
+            System.out.print("NOT Selected");
+            jTextField1.setText("$523.54");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        jTextField1.setText("$523.54");
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments
