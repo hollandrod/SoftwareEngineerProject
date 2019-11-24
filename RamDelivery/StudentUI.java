@@ -71,10 +71,12 @@ public class StudentUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setText("1 Popeyes Chicken Sandwich $5.99");
         jScrollPane1.setViewportView(jTextArea1);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setText("Chick-Fil-A Healthy Menu $6.99");
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel3.setText("Past Orders:");

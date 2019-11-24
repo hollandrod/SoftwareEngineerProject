@@ -126,6 +126,7 @@ public class RamDeliveryUI extends javax.swing.JFrame {
         }
         if("cook".equals(username)){
             new StaffUI().setVisible(true);
+            StaffUI.setUser(StaffUI.USER.COOK);
             this.setVisible(false);
         }
         

@@ -165,6 +165,7 @@ public class Communication extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         if(this.user == USER.COURIER){
             jTextField1.setText("Student43");
+            jTextArea1.setText("");
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
@@ -172,7 +173,7 @@ public class Communication extends javax.swing.JFrame {
         String currentText = jTextArea1.getText();
         if(!jTextArea2.getText().equals("")){
             if(this.user == USER.COURIER){
-                currentText += "\ncourier33211: " + jTextArea2.getText();
+                currentText += "courier33211: " + jTextArea2.getText();
             }
             if(this.user == USER.STUDENT){
                 currentText += "\nstudent: " + jTextArea2.getText();

@@ -181,6 +181,7 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="1 Popeyes Chicken Sandwich $5.99"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -196,6 +197,7 @@
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="text" type="java.lang.String" value="Chick-Fil-A Healthy Menu $6.99"/>
                   </Properties>
                 </Component>
               </SubComponents>
