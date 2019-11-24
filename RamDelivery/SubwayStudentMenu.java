@@ -15,6 +15,8 @@ import javax.swing.JCheckBox;
  */
 public class SubwayStudentMenu extends javax.swing.JFrame {
     public double price = 0.0;
+    public double addOn = 0.0;
+    public double finalPrice = 0.0;
     public ArrayList<JCheckBox> checkboxes = new ArrayList<>();
     /**
      * Creates new form SubwayStudentMenu
@@ -31,15 +33,29 @@ public class SubwayStudentMenu extends javax.swing.JFrame {
         checkboxes.add(jCheckBox9);
         checkboxes.add(jCheckBox10);
     }
-    
+    public void updateGlobalPrice(){
+        double temporaryPrice = addOn + price;
+        finalPrice = temporaryPrice;
+        String fullPrice = String.format("%.02f", temporaryPrice);
+        jTextField1.setText("$" + fullPrice);
+    }
     public void getUpdatedPrices(){
         int localPrice = 0;
         for(JCheckBox jcb : checkboxes){
             if(jcb.isSelected())
                 localPrice++;
         }
-        double temporaryPrice = localPrice + price;
-        jTextField1.setText("$" + Double.toString(temporaryPrice));
+        addOn = localPrice;
+        updateGlobalPrice();
+    }
+    public void getUpdatedSubLengthPrice(int selected){
+        if(selected == 1){
+            price = 6.67;
+        }
+        if(selected == 2){
+            price = 12.06;
+        }
+        updateGlobalPrice();
     }
     public SubwayStudentMenu() {
         initComponents();
@@ -101,6 +117,11 @@ public class SubwayStudentMenu extends javax.swing.JFrame {
         });
 
         jButton1.setText("Confirm Order");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Price:");
 
@@ -264,7 +285,7 @@ public class SubwayStudentMenu extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jRadioButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -322,16 +343,16 @@ public class SubwayStudentMenu extends javax.swing.JFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         if(jRadioButton2.isSelected()){
-            price = 12.06;
             jRadioButton1.setSelected(false);
         }
+        getUpdatedSubLengthPrice(2);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         if(jRadioButton1.isSelected()){
-            price = 6.67;
             jRadioButton2.setSelected(false);
         }
+        getUpdatedSubLengthPrice(1);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -369,6 +390,13 @@ public class SubwayStudentMenu extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         LoadCheckboxArray();
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        StudentUI student = new StudentUI();
+        student.setPrice(finalPrice);
+        student.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

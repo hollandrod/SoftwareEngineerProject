@@ -12,11 +12,20 @@ import RamDelivery.Communication.USER;
  * @author user
  */
 public class StudentUI extends javax.swing.JFrame {
+    double price = 0.0;
+    boolean set = true;
     /**
      * Creates new form StudentOrderingUI2
      */
     public StudentUI() {
         initComponents();
+    }
+    
+    public void setPrice(double p){
+        this.price = p;
+        String currentOrders = this.jTextArea2.getText();
+        currentOrders += "\nSubway Sub: $" + String.format("%.02f", this.price);
+        this.jTextArea2.setText(currentOrders);
     }
 
     /**
@@ -44,6 +53,13 @@ public class StudentUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RamDelivery - Student");
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Student"));
 
@@ -180,6 +196,10 @@ public class StudentUI extends javax.swing.JFrame {
         Communication.setUser(USER.STUDENT);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments
