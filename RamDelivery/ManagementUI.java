@@ -75,8 +75,19 @@ public class ManagementUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel2.setText("Orders Cooking:");
-
+        jLabel2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLabel2ActionPerformed(evt);
+            }
+        });
+        
+        
         jLabel3.setText("Orders Enroute:");
+        jLabel3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
