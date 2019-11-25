@@ -62,12 +62,16 @@ public class ManagementUI extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setText("Java Spot Order 123131");
         jScrollPane1.setViewportView(jTextArea1);
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setText("Java Spot Order 23123127");
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel2.setText("Orders Cooking:");
